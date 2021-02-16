@@ -59,24 +59,6 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-merge": "^4.2.1"
   },
-  "bundlesize": [
-    {
-      "path": "./dist/js/chunk-vendors*.js",
-      "maxSize": "125 kB"
-    },
-    {
-      "path": "./dist/js/chunk-firestore*.js",
-      "maxSize": "95 kB"
-    },
-    {
-      "path": "./dist/js/app*.js",
-      "maxSize": "15 kB"
-    },
-    {
-      "path": "./dist/js/client-chunk-*.js",
-      "maxSize": "6 kB"
-    }
-  ],
   "eslintConfig": {
     "root": true,
     "env": {
