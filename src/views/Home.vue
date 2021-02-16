@@ -8,7 +8,7 @@
       class="documentation-link"
       target="_blank"
       href="https://bento-starter.netlify.com/"
-      >Documentation →</a
+      >Documentation1 →</a
     >
   </div>
 </template>
