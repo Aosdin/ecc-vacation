@@ -1,10 +1,10 @@
 <template>
-  <div id="app">
+  <v-app id="app" data-app>
     <nav-bar></nav-bar>
     <div class="main-wrapper">
       <router-view />
     </div>
-
+    <navigation v-if="navigation"></navigation>
     <new-content-available-toastr
       v-if="newContentAvailable"
       class="new-content-available-toastr"
@@ -17,19 +17,20 @@
       @close="closeAddToHomeScreenModalForApple(false)"
     >
     </apple-add-to-home-screen-modal>
-  </div>
+  </v-app>
 </template>
 <script>
 import NavBar from '@/components/NavBar'
+import Navigation from '@/components/Navigation'
 import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
 import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
 import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
-  components: { NavBar, NewContentAvailableToastr, AppleAddToHomeScreenModal },
+  components: { NavBar, NewContentAvailableToastr, AppleAddToHomeScreenModal, Navigation },
   computed: {
     ...mapGetters('app', ['newContentAvailable']),
-    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
+    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp', 'navigation'])
   },
   methods: mapActions('app', [
     'closeAddToHomeScreenModalForApple',
@@ -48,8 +49,7 @@ body {
   }
 
   #app {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
@@ -74,6 +74,7 @@ body {
     }
 
     .main-wrapper {
+      overflow: hidden;
       margin-top: 3.6rem;
       padding: 20px;
 

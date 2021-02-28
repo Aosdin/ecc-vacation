@@ -7,7 +7,7 @@
     </router-link>
     <div class="links">
       <nav class="nav-links">
-        <div class="nav-item">
+        <div v-if="false" class="nav-item">
           <router-link to="/products">Products</router-link>
         </div>
         <div v-if="!isUserLoggedIn && networkOnLine" class="nav-item">
@@ -16,34 +16,40 @@
         <div
           v-if="isUserLoggedIn && networkOnLine"
           class="nav-item logout-item"
-          @click="logout"
+          @click="setNavigation(true)"
         >
-          <a>Logout</a>
+          <v-avatar color="primary" size="40"
+            ><img :src="user.photoURL" :alt="user.displayName"
+          /></v-avatar>
+
+          <!--          <a>Logout</a>-->
         </div>
         <div v-if="!networkOnLine" class="nav-item offline-label">Offline</div>
       </nav>
-
-      <img
-        v-if="isUserLoggedIn && networkOnLine"
-        class="user-picture can-hide"
-        :src="user.photoURL"
-        alt="Avatar"
-      />
     </div>
   </header>
 </template>
-
 <script>
 import firebase from 'firebase/app'
-import { mapGetters, mapState } from 'vuex'
+import {mapActions, mapGetters, mapState} from 'vuex'
 
 export default {
+  data () {
+    return {
+      drawer: false,
+      items: [
+        { title: 'Home', icon: 'mdi-view-dashboard' },
+        { title: 'About', icon: 'mdi-forum' },
+      ]
+    }
+  },
   computed: {
     ...mapGetters('authentication', ['isUserLoggedIn']),
     ...mapState('authentication', ['user']),
     ...mapState('app', ['networkOnLine', 'appTitle', 'appShortTitle'])
   },
   methods: {
+    ...mapActions('app', ['setNavigation']),
     async logout() {
       await firebase.auth().signOut()
     }

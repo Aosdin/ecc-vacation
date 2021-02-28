@@ -3,12 +3,12 @@ import 'firebase/auth'
 
 // The configuration below is not sensitive data. You can serenely add your config here
 const config = {
-  apiKey: 'AIzaSyCe6CSzOUs6_Ij_VHa6hancdEi6CNBtw7c',
+  apiKey: 'AIzaSyC6SwRj1qbZ-k6dD4SLIAsDrSgLjvpOoYo',
   authDomain: 'ecc-vacation.firebaseapp.com',
   databaseURL: 'https://bento-starter.firebaseio.com',
   projectId: 'ecc-vacation',
-  storageBucket: 'bento-starter.appspot.com',
-  messagingSenderId: '458464977217'
+  storageBucket: 'ecc-vacation.appspot.com',
+  messagingSenderId: '623301727887'
 }
 
 firebase.initializeApp(config)

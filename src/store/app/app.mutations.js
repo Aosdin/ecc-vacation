@@ -4,5 +4,6 @@ export default {
     (state.SWRegistrationForNewContent = value),
   setShowAddToHomeScreenModalForApple: (state, value) =>
     (state.showAddToHomeScreenModalForApple = value),
-  setRefreshingApp: (state, value) => (state.refreshingApp = value)
+  setRefreshingApp: (state, value) => (state.refreshingApp = value),
+  setNavigation: (state, value) => (state.navigation = value)
 }

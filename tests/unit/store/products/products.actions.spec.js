@@ -1,4 +1,4 @@
-import actions from '@/store/products/products.actions'
+import actions from '@/store/vacation/products.actions'
 
 jest.mock('@/firebase/user-products-db', () => ({
   UserProductsDB: jest.mock()

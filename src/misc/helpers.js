@@ -11,7 +11,13 @@ export const createNewUserFromFirebaseAuthUser = async firebaseAuthUser => {
   const user = {
     displayName,
     photoURL,
-    email
+    email,
+    authority: 1,
+    vPoint: 15,
+    nickName: '',
+    birthday: '',
+    memberYn: 'N',
+    delYn: 'N'
   }
 
   return userDb.create(user, firebaseAuthUser.uid)
